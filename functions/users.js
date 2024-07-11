@@ -8,10 +8,9 @@ let users = [
 exports.handler = async (event) => {
   const method = event.httpMethod;
   const { id } = event.queryStringParameters || {};
-  const path = event.path;
   const body = event.body ? JSON.parse(event.body) : {};
 
-  if (method === 'GET' && !id && path === '/users') {
+  if (method === 'GET' && !id) {
     return {
       statusCode: 200,
       body: JSON.stringify({
@@ -20,7 +19,7 @@ exports.handler = async (event) => {
         users: users
       })
     };
-  } else if (method === 'POST' && path === '/add') {
+  } else if (method === 'POST') {
     const { email, firstName } = body;
     const newUser = { email, firstName, id: uuidv4() };
     users.push(newUser);
@@ -31,10 +30,9 @@ exports.handler = async (event) => {
         success: true
       })
     };
-  } else if (method === 'PUT' && path.startsWith('/update/') && id) {
+  } else if (method === 'PUT' && id) {
     const { email, firstName } = body;
-    const userId = path.split('/update/')[1];
-    const user = users.find(user => user.id === userId);
+    const user = users.find(user => user.id === id);
     if (user) {
       if (email) user.email = email;
       if (firstName) user.firstName = firstName;
@@ -54,7 +52,7 @@ exports.handler = async (event) => {
         })
       };
     }
-  } else if (method === 'GET' && id && path === `/user/${id}`) {
+  } else if (method === 'GET' && id) {
     const user = users.find(user => user.id === id);
     if (user) {
       return {
