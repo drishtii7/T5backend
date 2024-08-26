@@ -25,15 +25,6 @@ Before you begin, ensure you have Node.js installed on your machine. You can dow
 - **PUT update an existing user**: [https://magenta-sopapillas-c4a996.netlify.app/.netlify/functions/users?id=5abf6783](https://magenta-sopapillas-c4a996.netlify.app/.netlify/functions/users?id=5abf6783)
 - **GET a specific user by ID**: [https://magenta-sopapillas-c4a996.netlify.app/.netlify/functions/users?id=5abf6783](https://magenta-sopapillas-c4a996.netlify.app/.netlify/functions/users?id=5abf6783)
 
-## Tutorial Repositories
-
-The main repository for tutorials can be accessed using the following link:
-
-[Tutorial Repository](https://git.cs.dal.ca/drishti/csci-5709-tutorials)
-
-The repository for Tutorial 5 can be accessed using the following link:
-
-[Tutorial 5 Repository](https://git.cs.dal.ca/drishti/csci-5709-tutorials/-/tree/main/Tutorial5)
 
 ### Key Tasks to Test
 
